@@ -1,5 +1,6 @@
 package com.se3project.register;
 
+import com.se3project.enums.EmployeeRole;
 import com.se3project.model.Employee;
 import com.se3project.model.Event;
 
@@ -18,4 +19,5 @@ public abstract class EmployeeRegister {
     }
     protected abstract Employee doRegister(Employee employee, Event event);
     protected abstract boolean isTheRightInstance(Employee employee);
+
 }

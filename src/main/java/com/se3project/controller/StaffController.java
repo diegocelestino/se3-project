@@ -2,6 +2,7 @@ package com.se3project.controller;
 
 
 import com.se3project.dtos.CollaboratorRegisterDto;
+import com.se3project.dtos.EmployeeRegisterOnBarDto;
 import com.se3project.dtos.EmployeeRegisterOnEventDto;
 import com.se3project.model.Employee;
 import com.se3project.model.Event;
@@ -31,10 +32,10 @@ public class StaffController {
         return ResponseEntity.ok(employee);
     }
 
-//    @PostMapping("registerOnBar")
-//    public ResponseEntity<Employee> registerEmployeeOnBar(@RequestBody EmployeeRegisterOnBarDto dto){
-//        Employee employee = staffService.registerEmployeeOnBar(dto);
-//        return ResponseEntity.ok(employee);
-//    }
+    @PostMapping("registerOnBar")
+    public ResponseEntity<Employee> registerEmployeeOnBar(@RequestBody EmployeeRegisterOnBarDto dto){
+        Employee employee = staffService.registerEmployeeOnBar(dto);
+        return ResponseEntity.ok(employee);
+    }
 
 }

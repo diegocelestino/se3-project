@@ -1,6 +1,6 @@
 package com.se3project.factories;
 
-import com.se3project.dtos.EmployeeRegisterOnEventDto;
+import com.se3project.dtos.EmployeeRegisterDto;
 import com.se3project.enums.EmployeeRole;
 import com.se3project.model.Collaborator;
 import com.se3project.model.Demouting;
@@ -17,7 +17,7 @@ public class DemoutingFactory extends EmployeeFactory {
     }
 
     @Override
-    public Employee doCreate(Collaborator collaborator, EmployeeRegisterOnEventDto dto) {
+    public Employee doCreate(Collaborator collaborator, EmployeeRegisterDto dto) {
         return new Demouting(collaborator, dto.getPay());
     }
 

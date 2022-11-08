@@ -9,9 +9,15 @@ import java.util.UUID;
 
 @Value
 @Getter
-public class EmployeeRegisterOnBarDto {
+public class EmployeeRegisterOnBarDto extends EmployeeRegisterDto {
     UUID collaboratorId;
     EmployeeRole employeeRole;
     BigDecimal pay;
     UUID barId;
+
+
+    @Override
+    UUID getId() {
+        return this.barId;
+    }
 }

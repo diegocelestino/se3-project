@@ -1,10 +1,6 @@
-package com.se3project.register;
+package com.se3project.service.register;
 
-import com.se3project.model.Coordinator;
-import com.se3project.model.Employee;
-import com.se3project.model.Event;
-import com.se3project.model.Leader;
-import com.se3project.repository.CoordinatorRepository;
+import com.se3project.model.*;
 import com.se3project.repository.LeaderRepository;
 
 public class LeaderRegister extends EmployeeRegister {
@@ -16,14 +12,14 @@ public class LeaderRegister extends EmployeeRegister {
     }
 
     @Override
-    public Employee doRegister(Employee employee, Event event) {
+    public Employee doRegister(Employee employee, Registrable bar) {
         Leader leader = (Leader) employee;
-        leader.setEvent(event);
-        return leaderRepository.save(coordinator);
+        leader.setBar((Bar) bar);
+        return leaderRepository.save(leader);
     }
 
     @Override
     protected boolean isTheRightInstance(Employee employee) {
-        return employee instanceof Coordinator;
+        return employee instanceof Leader;
     }
 }

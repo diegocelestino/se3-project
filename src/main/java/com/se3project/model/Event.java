@@ -13,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "events")
-public class Event {
+public class Event implements Registrable{
 
     @Id
     @Column(name = "event_id")

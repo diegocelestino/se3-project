@@ -1,8 +1,9 @@
-package com.se3project.register;
+package com.se3project.service.register;
 
 import com.se3project.model.Demouting;
 import com.se3project.model.Employee;
 import com.se3project.model.Event;
+import com.se3project.model.Registrable;
 import com.se3project.repository.DemoutingRepository;
 
 public class DemoutingRegister extends EmployeeRegister {
@@ -14,9 +15,9 @@ public class DemoutingRegister extends EmployeeRegister {
     }
 
     @Override
-    public Employee doRegister(Employee employee, Event event) {
+    public Employee doRegister(Employee employee, Registrable event) {
         Demouting demouting = (Demouting) employee;
-        demouting.setEvent(event);
+        demouting.setEvent((Event) event);
         return demoutingRepository.save(demouting);
     }
 

@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "bars")
-public class Bar {
+public class Bar implements Registrable {
 
     @Id
     @Column(name = "bar_id")

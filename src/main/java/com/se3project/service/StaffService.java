@@ -1,20 +1,13 @@
 package com.se3project.service;
 
-
 import com.se3project.dtos.CollaboratorRegisterDto;
 import com.se3project.dtos.EmployeeRegisterDto;
 import com.se3project.dtos.EmployeeRegisterOnBarDto;
 import com.se3project.dtos.EmployeeRegisterOnEventDto;
 import com.se3project.factories.*;
-import com.se3project.model.Bar;
-import com.se3project.model.Collaborator;
-import com.se3project.model.Employee;
-import com.se3project.model.Event;
-import com.se3project.register.CoordinatorRegister;
-import com.se3project.register.DemoutingRegister;
-import com.se3project.register.EmployeeRegister;
-import com.se3project.register.MoutingRegister;
+import com.se3project.model.*;
 import com.se3project.repository.*;
+import com.se3project.service.register.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,13 +23,13 @@ public class StaffService {
     private final MoutingRepository moutingRepository;
     private final DemoutingRepository demoutingRepository;
     private final BarRepository barRepository;
-
+    private final LeaderRepository leaderRepository;
+    private final AttendantRepository attendantRepository;
 
     public Event registerOnEvent(CollaboratorRegisterDto dto){
         Event event = getEvent(dto.getEventId());
         Collaborator collaborator = getCollaborator(dto.getCollaboratorId());
         List<Collaborator> collaborators = event.getCollaborators();
-        checkIfCollaboratorIsAlreadyRegistered(collaborator, collaborators);
         collaborators.add(collaborator);
         return eventRepository.save(event);
     }
@@ -45,14 +38,14 @@ public class StaffService {
         Event event = getEvent(dto.getEventId());
         Collaborator collaborator = getCollaborator(dto.getCollaboratorId());
         Employee employee = createEmployeeByRole(collaborator, dto);
-        return registerEmployeeOnEventByRole(employee, event);
+        return registerEmployeeByRole(employee, event);
     }
 
     public Employee registerEmployeeOnBar(EmployeeRegisterOnBarDto dto) {
         Bar bar = getBar(dto.getBarId());
         Collaborator collaborator = getCollaborator(dto.getCollaboratorId());
         Employee employee = createEmployeeByRole(collaborator, dto);
-        return employee;
+        return registerEmployeeByRole(employee, bar);
     }
 
     //Chain of Responsability
@@ -71,31 +64,21 @@ public class StaffService {
         return employeeFactory.create(collaborator, dto);
     }
 
-
     //Template
-    private Employee registerEmployeeOnEventByRole(Employee employee, Event event){
-        EmployeeRegister employeeRegister = new CoordinatorRegister(coordinatorRepository,
-                new MoutingRegister(moutingRepository,
-                        new DemoutingRegister(demoutingRepository,
-                                null
+    private Employee registerEmployeeByRole(Employee employee, Registrable registrable){
+        EmployeeRegister employeeRegister = new AttendantRegister(attendantRepository,
+                new LeaderRegister(leaderRepository,
+                        new CoordinatorRegister(coordinatorRepository,
+                                new MoutingRegister(moutingRepository,
+                                        new DemoutingRegister(demoutingRepository,
+                                                null
+                                        )
+                                )
                         )
                 )
         );
-        return employeeRegister.register(employee, event);
+        return employeeRegister.register(employee, registrable);
     }
-
-
-    private Employee registerEmployeeOnBarByRole(Employee employee, Bar bar){
-        EmployeeRegister employeeRegister = new CoordinatorRegister(coordinatorRepository,
-                new MoutingRegister(moutingRepository,
-                        new DemoutingRegister(demoutingRepository,
-                                null
-                        )
-                )
-        );
-        return employeeRegister.register(employee, event);
-    }
-
 
     public Event getEvent(UUID eventId) {
         return eventRepository.findById(eventId).orElseThrow(RuntimeException::new);
@@ -103,18 +86,6 @@ public class StaffService {
 
     public Collaborator getCollaborator(UUID collaboratorId) {
         return collaboratorRepository.findById(collaboratorId).orElseThrow(RuntimeException::new);
-    }
-
-    private void checkIfCollaboratorIsAlreadyRegistered(Collaborator collaborator, List<Collaborator> collaborators) {
-        if (collaborators.contains(collaborator)){
-            throw new RuntimeException();
-        }
-    }
-
-    private void checkIfCollaboratorIsNotRegistered(Collaborator collaborator, List<Collaborator> collaborators) {
-        if (!collaborators.contains(collaborator)){
-            throw new RuntimeException();
-        }
     }
 
     public Bar getBar(UUID barId){

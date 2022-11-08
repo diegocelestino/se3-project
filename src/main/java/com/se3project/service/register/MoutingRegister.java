@@ -1,8 +1,9 @@
-package com.se3project.register;
+package com.se3project.service.register;
 
 import com.se3project.model.Employee;
 import com.se3project.model.Event;
 import com.se3project.model.Mouting;
+import com.se3project.model.Registrable;
 import com.se3project.repository.MoutingRepository;
 
 public class MoutingRegister extends EmployeeRegister {
@@ -14,9 +15,9 @@ public class MoutingRegister extends EmployeeRegister {
     }
 
     @Override
-    public Employee doRegister(Employee employee, Event event) {
+    public Employee doRegister(Employee employee, Registrable event) {
         Mouting  mouting = (Mouting) employee;
-        mouting.setEvent(event);
+        mouting.setEvent((Event) event);
         return moutingRepository.save(mouting);
     }
 

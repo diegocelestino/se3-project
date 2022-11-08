@@ -1,15 +1,10 @@
 package com.se3project.factories;
 
-import com.se3project.dtos.EmployeeRegisterDto;
+import com.se3project.dtos.EmployeeRegisterOnEventDto;
 import com.se3project.enums.EmployeeRole;
 import com.se3project.model.Collaborator;
 import com.se3project.model.Coordinator;
 import com.se3project.model.Employee;
-import com.softwareengineering3.collaborator.Collaborator;
-import com.softwareengineering3.employee.Employee;
-import com.softwareengineering3.employee.EmployeeFactory;
-import com.softwareengineering3.employee.EmployeeRegisterDto;
-import com.softwareengineering3.employee.EmployeeRole;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +17,7 @@ public class CoordinatorFactory extends EmployeeFactory {
     }
 
     @Override
-    public Employee doCreate(Collaborator collaborator, EmployeeRegisterDto dto) {
+    public Employee doCreate(Collaborator collaborator, EmployeeRegisterOnEventDto dto) {
         return new Coordinator(collaborator, dto.getPay());
     }
 

@@ -1,0 +1,10 @@
+
+package com.se3project.repository;
+
+import com.se3project.model.Bar;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.UUID;
+
+public interface BarRepository extends JpaRepository<Bar, UUID> {
+}

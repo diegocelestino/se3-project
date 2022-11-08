@@ -21,7 +21,7 @@ public class CollaboratorController {
     }
 
     @GetMapping("{collaboratorId}")
-    public ResponseEntity<Collaborator> create(@RequestParam UUID collaboratorId){
+    public ResponseEntity<Collaborator> show(@RequestParam UUID collaboratorId){
         Collaborator collaborator = collaboratorService.getCollaborator(collaboratorId);
         return ResponseEntity.ok(collaborator);
     }

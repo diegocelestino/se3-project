@@ -9,9 +9,8 @@ import java.util.UUID;
 
 @Value
 @Getter
-public class EmployeeRegisterDto {
+public class EmployeeRegisterOnBarDto {
     UUID collaboratorId;
-    UUID eventId;
     EmployeeRole employeeRole;
     BigDecimal pay;
     UUID barId;

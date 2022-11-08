@@ -1,6 +1,6 @@
 package com.se3project.factories;
 
-import com.se3project.dtos.EmployeeRegisterDto;
+import com.se3project.dtos.EmployeeRegisterOnEventDto;
 import com.se3project.enums.EmployeeRole;
 import com.se3project.model.Collaborator;
 import com.se3project.model.Employee;
@@ -17,7 +17,7 @@ public class LeaderFactory extends EmployeeFactory {
     }
 
     @Override
-    public Employee doCreate(Collaborator collaborator, EmployeeRegisterDto dto) {
+    public Employee doCreate(Collaborator collaborator, EmployeeRegisterOnEventDto dto) {
         return new Leader(collaborator, dto.getPay());
     }
 

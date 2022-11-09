@@ -18,6 +18,7 @@ public class CollaboratorService {
         return collaborator;
     }
 
+
     public Collaborator getCollaborator(UUID collaboratorId) {
         return collaboratorRepository.findById(collaboratorId).orElseThrow(RuntimeException::new);
     }

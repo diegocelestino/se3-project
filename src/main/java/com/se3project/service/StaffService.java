@@ -48,7 +48,7 @@ public class StaffService {
         return registerEmployeeByRole(employee, bar);
     }
 
-    //Chain of Responsability
+    //Chain of Responsability and Factory
     private Employee createEmployeeByRole(Collaborator collaborator, EmployeeRegisterDto dto){
         EmployeeFactory employeeFactory = new CoordinatorFactory(
                 new MoutingFactory(

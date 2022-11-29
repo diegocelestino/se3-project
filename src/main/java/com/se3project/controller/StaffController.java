@@ -38,4 +38,10 @@ public class StaffController {
         return ResponseEntity.ok(employee);
     }
 
+    @PostMapping("payment")
+    public ResponseEntity<Employee> getPaymentByEmployee(@RequestBody EmployeeRegisterOnBarDto dto){
+        Employee employee = staffService.registerEmployeeOnBar(dto);
+        return ResponseEntity.ok(employee);
+    }
+
 }

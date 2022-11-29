@@ -1,7 +1,6 @@
 package com.se3project.factories;
 
 import com.se3project.dtos.EmployeeRegisterDto;
-import com.se3project.dtos.EmployeeRegisterOnEventDto;
 import com.se3project.enums.EmployeeRole;
 import com.se3project.model.Attendant;
 import com.se3project.model.Collaborator;

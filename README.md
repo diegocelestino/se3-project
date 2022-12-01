@@ -25,60 +25,60 @@ Corpo: <br/>
 
 No momento da criação de um evento, o administrador adiciona as informações pertinentes ao evento como seu nome. Após isso os colaboradores podem ser adicionados à essa lista do evento.
 
-Para o cadastro de Evento:
-Verbo: POST
-URL: http://localhost:8080/api/v1/event
-Corpo:
-{
-    "name":"Bota Fora"
-}
+Para o cadastro de Evento:<br/>
+Verbo: POST<br/>
+URL: http://localhost:8080/api/v1/event<br/>
+Corpo:<br/>
+{<br/>
+    "name":"Bota Fora"<br/>
+}<br/>
 
 ![event request](https://github.com/diegocelestino/se3-project/blob/master/pics/3.jpg)
 
-Para o cadastro de Bar:
-Verbo: POST
-URL: http://localhost:8080/api/v1/bar
-Corpo: 
-{
-    "name":"Ativações",
-    "eventId":"a5ae25af-4be3-4f94-ae16-d12b7f8df298"
-}
+Para o cadastro de Bar:<br/>
+Verbo: POST<br/>
+URL: http://localhost:8080/api/v1/bar<br/>
+Corpo: <br/>
+{<br/>
+    "name":"Ativações",<br/>
+    "eventId":"a5ae25af-4be3-4f94-ae16-d12b7f8df298"<br/>
+}<br/>
 ![bar request](https://github.com/diegocelestino/se3-project/blob/master/pics/2.jpg)
 
 Os colaboradores devem receber um papel como Empregados em um momento futuro. No momento desse cadastro, deve ser passado uma string com o role desse novo Empregado. São eles:
 
-COORDINATOR (Coordenador do evento); 
-MOUTING (Montagem);
-DEMOUTING (Desmontagem); 
-ATTENDANT (Atendente); 
-LEADER (Líder de bar);
+COORDINATOR (Coordenador do evento); <br/>
+MOUTING (Montagem);<br/>
+DEMOUTING (Desmontagem); <br/>
+ATTENDANT (Atendente); <br/>
+LEADER (Líder de bar);<br/>
 
 ![Classes roles](https://github.com/diegocelestino/se3-project/blob/master/pics/4.jpg)
 
 As devidas funções são registradas como um enum Java chamado EmployeeRoles.
 Alguns papéis como COORDINATOR, MOUTING ou DEMOUTING são registrados diretamente no evento, já os papéis restantes ATTENDANT e LEADER são registrados em um bar do evento.
 
-Para o registro no Bar:
-Verbo: POST
-URL:http://localhost:8080/api/v1/staff/registerOnBar
-Corpo:
-{
-    "collaboratorId":"76145bcc-10be-4cb9-be51-ecbcdde16d4e",
-    "barId":"b7c5d643-8041-4a00-a363-ba748c58c7bb",
-    "employeeRole":"ATTENDANT",
-    "pay":100.00
+Para o registro no Bar:<br/>
+Verbo: POST<br/>
+URL:http://localhost:8080/api/v1/staff/registerOnBar<br/>
+Corpo:<br/>
+{<br/>
+    "collaboratorId":"76145bcc-10be-4cb9-be51-ecbcdde16d4e",<br/>
+    "barId":"b7c5d643-8041-4a00-a363-ba748c58c7bb",<br/>
+    "employeeRole":"ATTENDANT",<br/>
+    "pay":100.00<br/>
 }
 
 ![Register on bar request](https://github.com/diegocelestino/se3-project/blob/master/pics/6.jpg)
 
-Para o registro direto no Evento:
-Verbo: POST
-URL:http://localhost:8080/api/v1/staff/registerOnEvent
-Corpo:
-    "collaboratorId":"4b740704-122f-44c2-b0ad-985757dd4098",
-    "eventId":"a5ae25af-4be3-4f94-ae16-d12b7f8df298",
-    "employeeRole":"COORDINATOR",
-    "pay":100.00
+Para o registro direto no Evento:<br/>
+Verbo: POST<br/>
+URL:http://localhost:8080/api/v1/staff/registerOnEvent<br/>
+Corpo:<br/>
+    "collaboratorId":"4b740704-122f-44c2-b0ad-985757dd4098",<br/>
+    "eventId":"a5ae25af-4be3-4f94-ae16-d12b7f8df298",<br/>
+    "employeeRole":"COORDINATOR",<br/>
+    "pay":100.00<br/>
 }
 
 ![Register on event request](https://github.com/diegocelestino/se3-project/blob/master/pics/5.jpg)

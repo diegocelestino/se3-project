@@ -1,6 +1,6 @@
 software-engineering-3-final-project Final project for the software engineering 3 class on IFSP. Teacher: Ugo Henrique
 
-Project Description: 
+##Project Description: 
 O código aqui presente representa um sistema criado para a disciplina de Engenharia de Software 3, válida pelo quadro do terceiro semestre do curso Tecnólogo em Análise e Desenvolvimento de Sistemas do Instituto Federal de Educação, Ciência e Tecnologia. 
 
 ![Classes diagram](https://github.com/diegocelestino/se3-project/blob/master/software-engineering-3-project-Diagrama%20de%20Classes%20do%20Sistema.jpg)
@@ -15,7 +15,7 @@ Para o cadastro de Colaborador:
 Verbo: POST
 URL: http://localhost:8080/api/v1/collaborator
 Corpo: 
-{
+{<br/>
     "name":"Alan de Zoka",
     "cpf":"12332112323",
     "pix":"adididi@uaheuhueh.com"

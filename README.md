@@ -72,5 +72,7 @@ Corpo:
 
 Essa string é passada para o sistema, que em seus métodos se utiliza dos patterns Chain Of Responsability, Template, Factory e Facade para fazer a instanciação da classe correta e seu devido registro no banco de dados. 
 
+![Classes diagram](https://github.com/diegocelestino/se3-project/blob/master/software-engineering-3-project-Diagrama%20de%20Classes%20do%20Sistema.jpg)
+
 
 Members: Ana Paula Motta. Davi Fernandes Siqueira. Diego Celestino dos Santos. Sarah Santiago.

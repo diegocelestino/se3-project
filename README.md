@@ -11,15 +11,15 @@ Esse é um sistema que auxilia no registro e organização de funcionários em u
 
 O uso comum desse sistema é feito pelo administrador da empresa. Em primeiro lugar é necessário o cadastro de Colaboradores, que possuem atributos como nome, documento e chave pix. No papel de Colaboradores, esses cadastros ficam salvos no banco, numa espécie de lista que podem ou não ser adicionados aos eventos, para que assumam o papel de Empregados.
 
-Para o cadastro de Colaborador: 
-Verbo: POST
-URL: http://localhost:8080/api/v1/collaborator
-Corpo: 
+Para o cadastro de Colaborador:<br/> 
+Verbo: POST<br/>
+URL: http://localhost:8080/api/v1/collaborator<br/>
+Corpo: <br/>
 {<br/>
-    "name":"Alan de Zoka",
-    "cpf":"12332112323",
-    "pix":"adididi@uaheuhueh.com"
-}
+    "name":"Alan de Zoka",<br/>
+    "cpf":"12332112323",<br/>
+    "pix":"adididi@uaheuhueh.com"<br/>
+}<br/>
 
 ![collaborator request](https://github.com/diegocelestino/se3-project/blob/master/pics/1.jpg)
 

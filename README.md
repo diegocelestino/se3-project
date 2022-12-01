@@ -56,6 +56,10 @@ LEADER (Líder de bar);<br/>
 ![Classes roles](https://github.com/diegocelestino/se3-project/blob/master/pics/4.jpg)
 
 As devidas funções são registradas como um enum Java chamado EmployeeRoles.
+Esses enums são essenciais para o sistema poder instanciar as classes corretas utilizando-se dos design patterns devidamente escolhidos para a função de decidir e instaciar essas classes. Cada um desses papéis do enum representa uma classe que existe no sistema e herda de Employee, como no exemplo a seguir:
+
+![Coordinato class](https://github.com/diegocelestino/se3-project/blob/master/pics/12.jpg)
+
 Alguns papéis como COORDINATOR, MOUTING ou DEMOUTING são registrados diretamente no evento, já os papéis restantes ATTENDANT e LEADER são registrados em um bar do evento.
 
 Para o registro no Bar:<br/>
